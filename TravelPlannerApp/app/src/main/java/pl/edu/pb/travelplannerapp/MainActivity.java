@@ -1,0 +1,167 @@
+package pl.edu.pb.travelplannerapp;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
+
+import static androidx.core.app.ActivityCompat.startActivityForResult;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TravelViewModel travelViewModel;
+    private Travel travell;
+
+    public static final int NEW_TRAVEL_ACTIVITY_REQUEST_CODE=1;
+    public static final int EDIT_TRAVEL_ACTIVITY_REQUEST_CODE=2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        RecyclerView recyclerView=findViewById(R.id.recyclerview);
+        final TravelAdapter adapter=new TravelAdapter();
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        travelViewModel= ViewModelProviders.of(this).get(TravelViewModel.class);
+
+        travelViewModel.findAll().observe(this, new Observer<List<Travel>>() {
+            @Override
+            public void onChanged(List<Travel> travels) {
+                adapter.setBooks(travels);
+            }
+        });
+
+
+        FloatingActionButton addBookButton = findViewById(R.id.add_button);
+        addBookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, EditTravelActivity.class);
+
+                startActivityForResult(intent,NEW_TRAVEL_ACTIVITY_REQUEST_CODE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+
+        if(requestCode==NEW_TRAVEL_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK){
+           Travel travel=new Travel(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_NAME),
+                    data.getStringExtra(EditTravelActivity.EXTRA_EDIT_PLACE),"00\00\00","00\00\00");
+      travelViewModel.insert(travel);
+            Snackbar.make(findViewById(R.id.coordinator_layout),getString(R.string.travel_added),
+                    Snackbar.LENGTH_LONG).show();
+        }else if(requestCode==EDIT_TRAVEL_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK) {
+            travell.setName(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_NAME));
+            travell.setPlace(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_PLACE));
+            travelViewModel.update(travell);
+        }
+        else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG
+            ).show();
+        }
+    }
+
+
+
+
+    private class TravelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private TextView bookNameTextView;
+        private TextView bookPlaceTextView;
+        private Travel travel;
+
+        public TravelHolder(LayoutInflater inflater, ViewGroup parent){
+            super(inflater.inflate(R.layout.travel_list_item,parent,false));
+            itemView.setOnClickListener(this);
+
+            bookNameTextView=itemView.findViewById(R.id.travel_name);
+            bookPlaceTextView=itemView.findViewById(R.id.travel_place);
+
+        }
+
+        public void bind(Travel travel){
+            this.travel=travel;
+            bookNameTextView.setText(travel.getName());
+            bookPlaceTextView.setText(travel.getPlace());
+        }
+
+        @Override
+        public void onClick(View v) {
+            travell=travel;
+            Intent intent=new Intent(MainActivity.this, EditTravelActivity.class);
+            intent.putExtra(EditTravelActivity.EXTRA_EDIT_NAME, travell.getName());
+            intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
+
+            startActivityForResult(intent,EDIT_TRAVEL_ACTIVITY_REQUEST_CODE);
+        }
+
+
+    }
+
+    private class TravelAdapter extends RecyclerView.Adapter<TravelHolder>{
+
+        private List<Travel> travels;
+
+
+        @Nullable
+        @Override
+        public TravelHolder onCreateViewHolder(@Nullable ViewGroup parent, int viewType){
+            return new TravelHolder(getLayoutInflater(),parent);
+        }
+
+        @Override
+        public void onBindViewHolder(@Nullable TravelHolder holder,int position){
+            if(travels!=null){
+                Travel travel=travels.get(position);
+                holder.bind(travel);
+            }else {
+                Log.d("MainActivity", "No travels");
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            if(travels!=null){
+                return  travels.size();
+            }else {
+                return 0;
+            }
+        }
+
+        void setBooks(List<Travel> travels){
+            this.travels=travels;
+            notifyDataSetChanged();
+        }
+
+    }
+
+}
