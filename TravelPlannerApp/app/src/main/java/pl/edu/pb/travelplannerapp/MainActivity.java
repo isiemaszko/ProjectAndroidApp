@@ -73,13 +73,17 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode==NEW_TRAVEL_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK){
            Travel travel=new Travel(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_NAME),
-                    data.getStringExtra(EditTravelActivity.EXTRA_EDIT_PLACE),"00\00\00","00\00\00");
+                    data.getStringExtra(EditTravelActivity.EXTRA_EDIT_PLACE),
+                   data.getStringExtra(EditTravelActivity.EXTRA_EDIT_START),
+                   data.getStringExtra(EditTravelActivity.EXTRA_EDIT_END));
       travelViewModel.insert(travel);
             Snackbar.make(findViewById(R.id.coordinator_layout),getString(R.string.travel_added),
                     Snackbar.LENGTH_LONG).show();
         }else if(requestCode==EDIT_TRAVEL_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK) {
             travell.setName(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_NAME));
             travell.setPlace(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_PLACE));
+            travell.setCal1(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_START));
+            travell.setCal2(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_END));
             travelViewModel.update(travell);
         }
         else {
@@ -97,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
     private class TravelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView bookNameTextView;
         private TextView bookPlaceTextView;
+        private TextView bookDataStartTextView;
+        private TextView bookDataEndTextView;
         private Travel travel;
 
         public TravelHolder(LayoutInflater inflater, ViewGroup parent){
@@ -105,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
 
             bookNameTextView=itemView.findViewById(R.id.travel_name);
             bookPlaceTextView=itemView.findViewById(R.id.travel_place);
+            bookDataStartTextView=itemView.findViewById(R.id.travel_data_start);
+            bookDataEndTextView=itemView.findViewById(R.id.travel_data_end);
 
         }
 
@@ -112,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
             this.travel=travel;
             bookNameTextView.setText(travel.getName());
             bookPlaceTextView.setText(travel.getPlace());
+            bookDataStartTextView.setText(travel.getCal1());
+            bookDataEndTextView.setText(travel.getCal2());
         }
 
         @Override
@@ -120,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(MainActivity.this, EditTravelActivity.class);
             intent.putExtra(EditTravelActivity.EXTRA_EDIT_NAME, travell.getName());
             intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
+            intent.putExtra(EditTravelActivity.EXTRA_EDIT_START,travel.getCal1());
+            intent.putExtra(EditTravelActivity.EXTRA_EDIT_END,travel.getCal2());
 
             startActivityForResult(intent,EDIT_TRAVEL_ACTIVITY_REQUEST_CODE);
         }

@@ -41,13 +41,13 @@ public abstract class TravelDatabase extends RoomDatabase {
       databaseWriteExecutor.execute(()->{
         TravelDao dao=INSTANCE.travelDao();
 
-        Travel travel=new Travel("Wakacje Mikołajka","Mikołajki","00\00\00","00\00\00");
+        Travel travel=new Travel("Wakacje Mikołajka","Mikołajki","00\00\000","00\00\0000");
         dao.insert(travel);
-        Travel travel1=new Travel("Naznaczona","Kristin Cast","00\00\00","00\00\00");
+        Travel travel1=new Travel("Naznaczona","Kristin Cast","00\00\000","00\00\000");
         dao.insert(travel1);
-        Travel travel2=new Travel("Igrzyska Smierci TOM 1","Suzanne Collins","00\00\00","00\00\00");
+        Travel travel2=new Travel("Igrzyska Smierci TOM 1","Suzanne Collins","00\00\000","00\00\000");
         dao.insert(travel2);
-        Travel travel3=new Travel("W pierścieniu ognia TOM 2","Suzanne Collins","00\00\00","00\00\00");
+        Travel travel3=new Travel("W pierścieniu ognia TOM 2","Suzanne Collins","00\00\000","00\00\000");
         dao.insert(travel3);
 
       });

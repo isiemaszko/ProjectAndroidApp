@@ -22,5 +22,19 @@
       android:padding="5dp"
       android:gravity="center_vertical"
       />
+  <TextView
+      android:id="@+id/travel_data_start"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+      android:padding="5dp"
+      android:gravity="center_vertical"
+      />
+  <TextView
+      android:id="@+id/travel_data_end"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+      android:padding="5dp"
+      android:gravity="center_vertical"
+      />
 
 </LinearLayout>

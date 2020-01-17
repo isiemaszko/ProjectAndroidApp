@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <EditText
         android:id="@+id/edit_name"
         android:layout_width="match_parent"
@@ -15,7 +14,6 @@
         android:inputType="textAutoComplete"
         android:padding="@dimen/small_padding"
         android:textSize="18dp" />
-
     <EditText
         android:id="@+id/edit_place"
         android:layout_width="match_parent"
@@ -27,67 +25,37 @@
         android:inputType="textAutoComplete"
         android:padding="@dimen/small_padding"
         android:textSize="18dp" />
-
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/start"
-        android:layout_width="167dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_toStartOf="@+id/edit_data_start"
-        android:text="@string/data_start"
-        android:textAlignment="center"
-        android:textSize="18dp" />
-
     <EditText
         android:id="@+id/edit_data_start"
-        android:layout_width="161dp"
-        android:layout_height="32dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="149dp"
-        android:textAlignment="center" />
-
-</RelativeLayout>
+        android:layout_width="164dp"
+        android:layout_height="38dp"
+        android:layout_marginRight="250dp"
+        android:textAlignment="center"
+        android:inputType="textAutoComplete"
+        android:hint="@string/data_start"
+        android:textSize="18dp"/>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/data_end"
-            android:layout_width="167dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/data_end"
-            android:textAlignment="center"
-
-             />
-
-        <Button
-            android:id="@+id/edit_data_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-        android:layout_marginRight="161dp"
-
-        tools:ignore="VectorDrawableCompat" />
-
-        <EditText
-            android:layout_width="167dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="center" />
     </RelativeLayout>
-
-
-
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edit_data_end"
+            android:layout_width="161dp"
+            android:layout_height="38dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="249dp"
+            android:textAlignment="center"
+            android:hint="@string/data_end"
+            android:inputType="textAutoComplete"
+            android:textSize="18dp"/>
+    </RelativeLayout>
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/buttonSaveColor"
         android:text="@string/button_save" />
-
-
-
 </LinearLayout>
