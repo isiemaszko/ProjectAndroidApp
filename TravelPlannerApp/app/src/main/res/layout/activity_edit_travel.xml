@@ -50,15 +50,6 @@
         android:layout_marginRight="149dp"
         android:textAlignment="center" />
 
-    <Button
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_data_start"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="-41dp"
-        android:layout_marginRight="0dp"
-        android:text="Get Data" />
-
 </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
