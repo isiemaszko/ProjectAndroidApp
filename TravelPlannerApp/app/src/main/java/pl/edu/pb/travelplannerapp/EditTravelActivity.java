@@ -19,6 +19,7 @@ public class EditTravelActivity extends AppCompatActivity {
     public static final String EXTRA_EDIT_PLACE="pb.edu.pl.EXTRA_EDIT_PLACE";
     public static final String EXTRA_EDIT_START="pb.edu.pl.EXTRA_EDIT_START";
     public static final String EXTRA_EDIT_END="pb.edu.pl.EXTRA_EDIT_END";
+    public static final int MAPS_ACTIVITY_REQUEST_CODE=0;
 
     private EditText editNameEditText;
     private EditText editPlaceEditText;
@@ -44,6 +45,14 @@ public class EditTravelActivity extends AppCompatActivity {
             editDataEnd.setText((getIntent().getSerializableExtra(EXTRA_EDIT_END).toString()));
         }
 
+        editPlaceEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(EditTravelActivity.this, MapActivity.class);
+//                intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
+                startActivityForResult(intent,MAPS_ACTIVITY_REQUEST_CODE);
+            }
+        });
 
         editDataStart.setOnClickListener(new View.OnClickListener(){
             @Override
