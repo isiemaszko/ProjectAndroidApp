@@ -6,35 +6,29 @@
     android:padding="5dp"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+  <ImageView
+      android:id="@+id/edit"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+
+      tools:srcCompat="@drawable/ic_edit_black_24dp" />
+
+  <ImageView
+      android:id="@+id/delete"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+
+      tools:srcCompat="@drawable/ic_delete_black_24dp" />
+
   <TextView
       android:id="@+id/travel_name"
       android:layout_width="wrap_content"
       android:layout_height="40dp"
-      android:padding="5dp"
       android:gravity="center_vertical"
+      android:padding="5dp"
 
       />
 
-  <TextView
-      android:id="@+id/travel_place"
-      android:layout_width="wrap_content"
-      android:layout_height="40dp"
-      android:padding="5dp"
-      android:gravity="center_vertical"
-      />
-  <TextView
-      android:id="@+id/travel_data_start"
-      android:layout_width="wrap_content"
-      android:layout_height="40dp"
-      android:padding="5dp"
-      android:gravity="center_vertical"
-      />
-  <TextView
-      android:id="@+id/travel_data_end"
-      android:layout_width="wrap_content"
-      android:layout_height="40dp"
-      android:padding="5dp"
-      android:gravity="center_vertical"
-      />
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package pl.edu.pb.travelplannerapp;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -100,9 +102,11 @@ public class MainActivity extends AppCompatActivity {
 
     private class TravelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView bookNameTextView;
-        private TextView bookPlaceTextView;
-        private TextView bookDataStartTextView;
-        private TextView bookDataEndTextView;
+//        private TextView bookPlaceTextView;
+//        private TextView bookDataStartTextView;
+//        private TextView bookDataEndTextView;
+        private ImageView deleteImageView;
+        private ImageView editImageView;
         private Travel travel;
 
         public TravelHolder(LayoutInflater inflater, ViewGroup parent){
@@ -110,30 +114,48 @@ public class MainActivity extends AppCompatActivity {
             itemView.setOnClickListener(this);
 
             bookNameTextView=itemView.findViewById(R.id.travel_name);
-            bookPlaceTextView=itemView.findViewById(R.id.travel_place);
-            bookDataStartTextView=itemView.findViewById(R.id.travel_data_start);
-            bookDataEndTextView=itemView.findViewById(R.id.travel_data_end);
+          //  bookPlaceTextView=itemView.findViewById(R.id.travel_place);
+
+            deleteImageView=itemView.findViewById(R.id.delete);
+            editImageView=itemView.findViewById(R.id.edit);
+
+            deleteImageView.setImageResource(R.drawable.ic_delete_black_24dp);
+            editImageView.setImageResource(R.drawable.ic_edit_black_24dp);
 
         }
 
         public void bind(Travel travel){
             this.travel=travel;
             bookNameTextView.setText(travel.getName());
-            bookPlaceTextView.setText(travel.getPlace());
-            bookDataStartTextView.setText(travel.getCal1());
-            bookDataEndTextView.setText(travel.getCal2());
+//            bookPlaceTextView.setText(travel.getPlace());
+//            bookDataStartTextView.setText(travel.getCal1());
+//            bookDataEndTextView.setText(travel.getCal2());
+
+            editImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    travell=travel;
+                    Intent intent=new Intent(MainActivity.this, EditTravelActivity.class);
+                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_NAME, travell.getName());
+                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
+                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_START,travel.getCal1());
+                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_END,travel.getCal2());
+
+                    startActivityForResult(intent,EDIT_TRAVEL_ACTIVITY_REQUEST_CODE);
+                }
+            });
+
+            deleteImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    travelViewModel.delete(travel);
+                }
+            });
         }
 
         @Override
         public void onClick(View v) {
-            travell=travel;
-            Intent intent=new Intent(MainActivity.this, EditTravelActivity.class);
-            intent.putExtra(EditTravelActivity.EXTRA_EDIT_NAME, travell.getName());
-            intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
-            intent.putExtra(EditTravelActivity.EXTRA_EDIT_START,travel.getCal1());
-            intent.putExtra(EditTravelActivity.EXTRA_EDIT_END,travel.getCal2());
-
-            startActivityForResult(intent,EDIT_TRAVEL_ACTIVITY_REQUEST_CODE);
+           //przejscie do planu
         }
 
 

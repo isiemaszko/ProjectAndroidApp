@@ -40,6 +40,7 @@ public abstract class TravelDatabase extends RoomDatabase {
       super.onOpen(db);
       databaseWriteExecutor.execute(()->{
         TravelDao dao=INSTANCE.travelDao();
+        dao.deleteALl();
 
         Travel travel=new Travel("Wakacje Mikołajka","Mikołajki","00\00\000","00\00\0000");
         dao.insert(travel);
