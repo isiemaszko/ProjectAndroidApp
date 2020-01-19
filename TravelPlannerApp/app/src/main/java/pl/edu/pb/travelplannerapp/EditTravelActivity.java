@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Console;
 import java.util.Calendar;
 
 
@@ -48,9 +50,10 @@ public class EditTravelActivity extends AppCompatActivity {
         editPlaceEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("MainActivity", "Edit place");
                 Intent intent=new Intent(EditTravelActivity.this, MapActivity.class);
 //                intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
-                startActivityForResult(intent,MAPS_ACTIVITY_REQUEST_CODE);
+                startActivity(intent);
             }
         });
 
