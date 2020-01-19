@@ -7,5 +7,6 @@
     <string name="travel_added">Book added successfully</string>
     <string name="data_start">From..</string>
     <string name="data_end">Do..</string>
+    <string name="empty_not_maps">Place is empty.</string>
 
 </resources>

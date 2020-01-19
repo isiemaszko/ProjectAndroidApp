@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Console;
@@ -28,6 +30,8 @@ public class EditTravelActivity extends AppCompatActivity {
     private EditText editDataStart;
     private EditText editDataEnd;
     DatePickerDialog datePickerDialog;
+
+    private Travel travell;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -52,8 +56,8 @@ public class EditTravelActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("MainActivity", "Edit place");
                 Intent intent=new Intent(EditTravelActivity.this, MapActivity.class);
-//                intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
-                startActivity(intent);
+                intent.putExtra(MapActivity.EXTRA_EDIT_PLACE_MAP,editPlaceEditText.getText().toString());
+                startActivityForResult(intent,MAPS_ACTIVITY_REQUEST_CODE);
             }
         });
 
@@ -135,6 +139,22 @@ public class EditTravelActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+
+        if(requestCode==MAPS_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK){
+            editPlaceEditText.setText(data.getStringExtra(MapActivity.EXTRA_EDIT_PLACE_MAP));
+
+        }else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_maps,
+                    Toast.LENGTH_LONG
+            ).show();
+        }
     }
 
 }

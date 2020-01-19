@@ -1,0 +1,15 @@
+
+Fsquid:S1068n"*Remove this unused "travel" private field.(·‚ìÍÿÿÿÿÿ
+?squid:S16045"(Make this anonymous inner class a lambda(Òœùò
+csquid:CommentedOutCodeLine‚"<This block of commented-out lines of code should be removed.(Èï†¨
+Ysquid:S2259U"BA "NullPointerException" could be thrown; "data" is nullable here.(Õ¦©§
+Tsquid:UselessImportCheck"0Remove this unused import 'android.media.Image'.(ëïøÂ
+Vsquid:UselessImportCheck"2Remove this unused import 'android.view.MenuItem'.(Ğ¬Ó‘
+\squid:S2259³"DA "NullPointerException" could be thrown; "holder" is nullable here.(ï°€
+bsquid:UselessImportCheck"9Remove this unused import 'androidx.lifecycle.ViewModel'.(ÛÒÚ“úÿÿÿÿ
+^squid:S2259M"BA "NullPointerException" could be thrown; "data" is nullable here.(ğ€¿¶ÿÿÿÿÿ
+gsquid:UselessImportCheck">Remove this unused import 'androidx.appcompat.widget.Toolbar'.(ÔËûİùÿÿÿÿ
+Rsquid:UselessImportCheck".Remove this unused import 'android.view.Menu'.(£¯Ò…
+qsquid:S1450n"URemove the "travel" field and declare it as a local variable in the relevant methods.(·‚ìÍÿÿÿÿÿ
+gsquid:CommentedOutCodeLineu"<This block of commented-out lines of code should be removed.(ëÃÆéùÿÿÿÿ
+gsquid:CommentedOutCodeLinei"<This block of commented-out lines of code should be removed.(êöÔúÿÿÿÿ
