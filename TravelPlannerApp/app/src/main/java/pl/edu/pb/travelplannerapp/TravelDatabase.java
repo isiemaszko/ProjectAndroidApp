@@ -36,11 +36,11 @@ public abstract class TravelDatabase extends RoomDatabase {
 
   private static RoomDatabase.Callback sRoomDatabaseCallback=new RoomDatabase.Callback(){
     @Override
-    public void onOpen(@Nullable SupportSQLiteDatabase db){
+    public void onCreate(@Nullable SupportSQLiteDatabase db){
       super.onOpen(db);
       databaseWriteExecutor.execute(()->{
         TravelDao dao=INSTANCE.travelDao();
-        dao.deleteALl();
+    //    dao.deleteALl();//usuwanie wszytskiego
 
         Travel travel=new Travel("Wakacje Mikołajka","Mikołajki","00\00\000","00\00\0000");
         dao.insert(travel);

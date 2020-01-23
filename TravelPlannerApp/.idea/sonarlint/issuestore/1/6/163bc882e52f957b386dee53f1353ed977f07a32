@@ -1,13 +1,12 @@
 
-ysquid:S1450"]Remove the "locationButton" field and declare it as a local variable in the relevant methods.(žç±æüÿÿÿÿ
-isquid:HiddenFieldCheck/"BRename "locationSearch" which hides the field declared at line 29.(ýÝû²øÿÿÿÿ
-Isquid:S1068"2Remove this unused "locationSearch" private field.(ËÁ³ƒ
+bsquid:S2259z"FA "NullPointerException" could be thrown; "location" is nullable here.(¹¬Ü¦þÿÿÿÿ
+@squid:S1148€"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+gsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(ðë¾üÿÿÿÿ
+?squid:S1148E"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+bsquid:S2259?"FA "NullPointerException" could be thrown; "location" is nullable here.(¹¬Ü¦þÿÿÿÿ
 isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
-?squid:S1148U"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-?squid:S1148:"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-jsquid:S1192="GDefine a constant instead of duplicating this literal "adress" 3 times.(ËÓ÷¼þÿÿÿÿ8Ãø¤þû-
-gsquid:CommentedOutCodeLinee"<This block of commented-out lines of code should be removed.(ðë¾üÿÿÿÿ
-bsquid:S22594"FA "NullPointerException" could be thrown; "location" is nullable here.(¹¬Ü¦þÿÿÿÿ
-bsquid:S2259O"FA "NullPointerException" could be thrown; "location" is nullable here.(¹¬Ü¦þÿÿÿÿ
-isquid:HiddenFieldCheckK"BRename "locationSearch" which hides the field declared at line 29.(ýÝû²øÿÿÿÿ
-jsquid:S1192)"NDefine a constant instead of duplicating this literal "MainActivity" 10 times.(íºŠ¼üÿÿÿÿ
+dsquid:UselessImportCheck"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8Áæûùü-
+bsquid:UselessImportCheck"2Remove this unused import 'android.widget.Button'.(²òžýÿÿÿÿ8Áæûùü-
+]squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8Áæûùü-
+{squid:S1450#"]Remove the "locationButton" field and declare it as a local variable in the relevant methods.(ÜéÐ8Áæûùü-
+|squid:S1450$"YRemove the "backButton" field and declare it as a local variable in the relevant methods.(Î¶Òöûÿÿÿÿ8Áæûùü-
