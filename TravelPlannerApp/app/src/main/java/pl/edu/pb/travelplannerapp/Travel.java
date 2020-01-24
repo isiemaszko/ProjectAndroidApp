@@ -1,7 +1,11 @@
 package pl.edu.pb.travelplannerapp;
 
+import android.graphics.Bitmap;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.util.List;
 
 @Getter
 @Setter

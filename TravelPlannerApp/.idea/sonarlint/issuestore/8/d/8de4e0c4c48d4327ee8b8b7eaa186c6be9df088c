@@ -1,6 +1,6 @@
 
-fsquid:S1192-"JDefine a constant instead of duplicating this literal "00\00\000" 7 times.(ð¥ïÃúÿÿÿÿ
-psquid:S2637("ZParameter 1 to this call is marked "androidx.annotation.NonNull" but null could be passed.(¯¥¦M
 csquid:UselessImportCheck":Remove this unused import 'java.util.concurrent.Executor'.(÷ý¶Œúÿÿÿÿ
-jsquid:S3008"SRename this field "INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“¶Ëç
+qsquid:S2637("ZParameter 1 to this call is marked "androidx.annotation.NonNull" but null could be passed.(ù«£ó
+fsquid:S1192-"JDefine a constant instead of duplicating this literal "00\00\000" 7 times.(ð¥ïÃúÿÿÿÿ
 Esquid:S3077".Remove the "volatile" keyword from this field.(“¶Ëç
+jsquid:S3008"SRename this field "INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“¶Ëç

@@ -37,7 +37,7 @@ public abstract class TravelDatabase extends RoomDatabase {
   private static RoomDatabase.Callback sRoomDatabaseCallback=new RoomDatabase.Callback(){
     @Override
     public void onCreate(@Nullable SupportSQLiteDatabase db){
-      super.onOpen(db);
+      super.onCreate(db);
       databaseWriteExecutor.execute(()->{
         TravelDao dao=INSTANCE.travelDao();
     //    dao.deleteALl();//usuwanie wszytskiego

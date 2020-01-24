@@ -1,0 +1,7 @@
+
+vsquid:S3008"SRename this field "INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ã÷çùÿÿÿÿ8Ÿé•½ý-
+xsquid:S2637'"ZParameter 1 to this call is marked "androidx.annotation.NonNull" but null could be passed.(ù«£ó8Èóš½ý-
+Qsquid:S3077".Remove the "volatile" keyword from this field.(’ã÷çùÿÿÿÿ8Ÿé•½ý-
+isquid:S1192,"FDefine a constant instead of duplicating this literal "zamek" 6 times.(Ðð¯§ùÿÿÿÿ8Ý«§Êý-
+isquid:S1192,"FDefine a constant instead of duplicating this literal "12:30" 6 times.(Ðð¯§ùÿÿÿÿ8Ý«§Êý-
+nsquid:S1192,"KDefine a constant instead of duplicating this literal "12/12/2012" 6 times.(Ðð¯§ùÿÿÿÿ8Ý«§Êý-
