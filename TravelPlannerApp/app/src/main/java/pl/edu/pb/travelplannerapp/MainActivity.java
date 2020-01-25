@@ -56,7 +56,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Travel> travels) {
                 adapter.setBooks(travels);
-                Log.d("MainActivity","trav  "+travels);
+                for (Travel el:travels
+                     ) {
+                    Log.d("MainActivity","trav  "+el.getId()+ " "+el.getName());
+                }
+
             }
         });
 

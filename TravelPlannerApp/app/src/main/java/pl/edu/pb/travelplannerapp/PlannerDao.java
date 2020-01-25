@@ -25,7 +25,7 @@ public interface PlannerDao {
     @Query("DELETE FROM planner")
     public void deleteALl();
 
-    @Query("SELECT * FROM planner ORDER BY name")
+    @Query("SELECT * FROM planner  ORDER BY name")
     public LiveData<List<Planner>> findAll();
 
     @Query("SELECT * FROM planner WHERE name LIKE :name")

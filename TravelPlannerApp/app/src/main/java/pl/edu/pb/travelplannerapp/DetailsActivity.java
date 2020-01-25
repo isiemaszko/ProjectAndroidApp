@@ -1,6 +1,7 @@
 package pl.edu.pb.travelplannerapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -15,10 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -32,7 +36,7 @@ public class DetailsActivity extends AppCompatActivity {
     private PlannerViewModel palnViewModel;
     private Planner plann;
     private int id;
-
+    public static final int NEW_PLANNER_ACTIVITY_REQUEST_CODE=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,17 @@ public class DetailsActivity extends AppCompatActivity {
         palnViewModel.findAll().observe(this, new Observer<List<Planner>>() {
             @Override
             public void onChanged(List<Planner> planners) {
-                adapter.setPlanners(planners);
-                Log.d("MainActivity","pl"+planners);
+                List<Planner> pom=new ArrayList<Planner>();
+                for (Planner el:planners
+                     ) {
+                    Log.d("MainActivity","elem "+el.getIdTravel()+ " "+el.getName());
+                    if(el.getIdTravel()==id){
+
+                        pom.add(el);
+                    }
+                }
+                adapter.setPlanners(pom);
+                Log.d("MainActivity","pl"+pom);
             }
         });
 
@@ -65,26 +78,58 @@ public class DetailsActivity extends AppCompatActivity {
         addBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent=new Intent(MainActivity.this, EditTravelActivity.class);
-//
-//                startActivityForResult(intent,NEW_TRAVEL_ACTIVITY_REQUEST_CODE);
+                Intent intent=new Intent(DetailsActivity.this, EditPlannerActivity.class);
+
+                startActivityForResult(intent,NEW_PLANNER_ACTIVITY_REQUEST_CODE);
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+
+        if(requestCode==NEW_PLANNER_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK){
+            Planner planner=new Planner(id,data.getStringExtra(EditPlannerActivity.EXTRA_EDIT_NAME_PLANNER),
+                    data.getStringExtra(EditPlannerActivity.EXTRA_EDIT_DATE),
+                    data.getStringExtra(EditPlannerActivity.EXTRA_EDIT_TIME));
+            palnViewModel.insert(planner);
+
+            Snackbar.make(findViewById(R.id.coordinator_layout_details),getString(R.string.planner_added),
+                    Snackbar.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.planner_empty_not_saved,
+                    Toast.LENGTH_LONG
+            ).show();
+        }
+    }
+
     private class DetailsHolder extends RecyclerView.ViewHolder {
         private TextView name;
-
+        private ImageView deleteImageView;
         public DetailsHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.planner_list_item,parent,false));
 
             name=itemView.findViewById(R.id.day_name);
+            deleteImageView=itemView.findViewById(R.id.delete_planner);
+
+            deleteImageView.setImageResource(R.drawable.ic_delete_black_24dp);
         }
 
 
         public void bind(Planner plan){
             Log.d("MainActivity", "nam"+plan.getName());
+
             name.setText(plan.getName());
+            deleteImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    palnViewModel.delete(plan);
+                }
+            });
         }
     }
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+<EditText
+    android:id="@+id/edit_planner_name"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:fontFamily="sans-serif-light"
+    android:hint="@string/hint_name"
+    android:inputType="textAutoComplete"
+    android:padding="@dimen/small_padding"
+    android:textSize="18dp" />
+<EditText
+    android:id="@+id/edit_data"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginRight="200dp"
+    android:textAlignment="center"
+    android:inputType="textAutoComplete"
+    android:hint="@string/data"
+    android:textSize="18dp"/>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+</RelativeLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/edit_time"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="200dp"
+        android:textAlignment="center"
+        android:hint="@string/time"
+        android:inputType="textAutoComplete"
+        android:textSize="18dp"/>
+</RelativeLayout>
+<Button
+    android:id="@+id/button_save_planner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/buttonSaveColor"
+    android:text="@string/button_save" />
+</LinearLayout>

@@ -41,17 +41,17 @@ public abstract class PlannerDatabase extends RoomDatabase {
                 PlannerDao dao=INSTANCE.plannerDao();
                 //    dao.deleteALl();//usuwanie wszytskiego
 
-                Planner plan=new Planner(277,"zamek","12/12/2012","12:30");
+                Planner plan=new Planner(3,"3","12/12/2012","12:30");
                 dao.insert(plan);
-                Planner plan2=new Planner(277,"zamek","12/12/2012","12:30");
+                Planner plan2=new Planner(3,"3","12/12/2012","12:30");
                 dao.insert(plan2);
-                Planner plan3=new Planner(277,"zamek","12/12/2012","12:30");
+                Planner plan3=new Planner(2,"2","12/12/2012","12:30");
                 dao.insert(plan3);
-                Planner plan4=new Planner(278,"zamek","12/12/2012","12:30");
+                Planner plan4=new Planner(2,"2","12/12/2012","12:30");
                 dao.insert(plan4);
-                Planner plan5=new Planner(279,"zamek","12/12/2012","12:30");
+                Planner plan5=new Planner(1,"1","12/12/2012","12:30");
                 dao.insert(plan5);
-                Planner plan6=new Planner(279,"zamek","12/12/2012","12:30");
+                Planner plan6=new Planner(1,"1","12/12/2012","12:30");
                 dao.insert(plan6);
 
             });

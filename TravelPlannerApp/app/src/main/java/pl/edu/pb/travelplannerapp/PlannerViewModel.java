@@ -11,6 +11,7 @@ import java.util.List;
 public class PlannerViewModel extends AndroidViewModel {
     private PlannerRepository travelRepository;
     private LiveData<List<Planner>> travels;
+    private int id;
 
     public PlannerViewModel(@Nullable Application application){
         super(application);

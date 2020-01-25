@@ -31,3 +31,5 @@ s
 Capp/src/main/java/pl/edu/pb/travelplannerapp/PlannerRepository.java,5\3\5357448fe3bee3987c2ad4d479a2cf1fe3dcd781
 q
 Aapp/src/main/java/pl/edu/pb/travelplannerapp/DetailsActivity.java,4\c\4cee6ee74ff225c54d880487153444d6b84ab546
+u
+Eapp/src/main/java/pl/edu/pb/travelplannerapp/EditPlannerActivity.java,f\c\fc4f8a542799245155d493c2bae8ea3a38ad8be1

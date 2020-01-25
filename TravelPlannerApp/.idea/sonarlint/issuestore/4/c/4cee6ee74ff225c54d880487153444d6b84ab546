@@ -1,15 +1,12 @@
 
-ksquid:S11921"MDefine a constant instead of duplicating this literal "MainActivity" 3 times.(âõ¬8µÇÑÊı-
-lsquid:UselessImportCheck
-"<Remove this unused import 'android.annotation.SuppressLint'.(ÕƒóÏûÿÿÿÿ8í§ÈÊı-
-nsquid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(ê»×ùıÿÿÿÿ8²òîÈı-
-nsquid:CommentedOutCodeLine5"<This block of commented-out lines of code should be removed.(·‚ÿºùÿÿÿÿ8²úİËı-
-asquid:UselessImportCheck"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8æíá¾ı-
-tsquid:S1450""QRemove the "id" field and declare it as a local variable in the relevant methods.(ôç¼Óşÿÿÿÿ8´³Ëı-
-_squid:UselessImportCheck"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×8ò”·Êı-
-Gsquid:S1068!")Remove this unused "plann" private field.(â¡¹œ8ÙÕ“¾ı-
-isquid:CommentedOutCodeLineF"<This block of commented-out lines of code should be removed.(¿û¾ü8²òîÈı-
-^squid:UselessImportCheck"3Remove this unused import 'java.util.zip.Inflater'.(„ËÅ¯8ŞìÈı-
-Ksquid:S16047"(Make this anonymous inner class a lambda(Ì”Úìúÿÿÿÿ8ÁÎüÈı-
-_squid:UselessImportCheck"4Remove this unused import 'android.widget.EditText'.(†Å›Ú8ª½õÈı-
-zsquid:S1450 "\Remove the "palnViewModel" field and declare it as a local variable in the relevant methods.(â©ô‚8§ßÕÊı-
+asquid:UselessImportCheck"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8æíá¾ı-
+_squid:UselessImportCheck"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×8ò”·Êı-
+lsquid:UselessImportCheck"<Remove this unused import 'android.annotation.SuppressLint'.(ÕƒóÏûÿÿÿÿ8í§ÈÊı-
+wsquid:S2293>"YReplace the type specification in this constructor call with the diamond operator ("<>").(Åö³›8Êêòı-
+ksquid:S11925"MDefine a constant instead of duplicating this literal "MainActivity" 4 times.(âõ¬8µÇÑÊı-
+_squid:UselessImportCheck"4Remove this unused import 'android.widget.EditText'.(†Å›Ú8ª½õÈı-
+^squid:UselessImportCheck"3Remove this unused import 'java.util.zip.Inflater'.(„ËÅ¯8ŞìÈı-
+nsquid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(·‚ÿºùÿÿÿÿ8²úİËı-
+esquid:S2259]"BA "NullPointerException" could be thrown; "data" is nullable here.(øú•™üÿÿÿÿ8Ü­øóı-
+Ksquid:S1604;"(Make this anonymous inner class a lambda(Ì”Úìúÿÿÿÿ8ÁÎüÈı-
+Gsquid:S1068%")Remove this unused "plann" private field.(â¡¹œ8¶Åàõı-
