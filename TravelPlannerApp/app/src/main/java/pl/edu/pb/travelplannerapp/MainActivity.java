@@ -34,9 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
     private TravelViewModel travelViewModel;
     private Travel travell;
+    public int size;
 
     public static final int NEW_TRAVEL_ACTIVITY_REQUEST_CODE=1;
     public static final int EDIT_TRAVEL_ACTIVITY_REQUEST_CODE=2;
+    public static final int DETAILS_BOOK_ACTIVITY_REQUEST_CODE=3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Travel> travels) {
                 adapter.setBooks(travels);
+                for (Travel el:travels
+                     ) {
+                    Log.d("MainActivity","trav  "+el.getId()+ " "+el.getName());
+                }
+
             }
         });
 
@@ -78,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     data.getStringExtra(EditTravelActivity.EXTRA_EDIT_PLACE),
                    data.getStringExtra(EditTravelActivity.EXTRA_EDIT_START),
                    data.getStringExtra(EditTravelActivity.EXTRA_EDIT_END));
-      travelViewModel.insert(travel);
+            travelViewModel.insert(travel);
             Snackbar.make(findViewById(R.id.coordinator_layout),getString(R.string.travel_added),
                     Snackbar.LENGTH_LONG).show();
         }else if(requestCode==EDIT_TRAVEL_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK) {
@@ -86,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             travell.setPlace(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_PLACE));
             travell.setCal1(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_START));
             travell.setCal2(data.getStringExtra(EditTravelActivity.EXTRA_EDIT_END));
+
             travelViewModel.update(travell);
         }
         else {
@@ -138,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent=new Intent(MainActivity.this, EditTravelActivity.class);
                     intent.putExtra(EditTravelActivity.EXTRA_EDIT_NAME, travell.getName());
                     intent.putExtra(EditTravelActivity.EXTRA_EDIT_PLACE, travell.getPlace());
-                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_START,travel.getCal1());
-                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_END,travel.getCal2());
+                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_START,travell.getCal1());
+                    intent.putExtra(EditTravelActivity.EXTRA_EDIT_END,travell.getCal2());
 
                     startActivityForResult(intent,EDIT_TRAVEL_ACTIVITY_REQUEST_CODE);
                 }
@@ -148,14 +156,18 @@ public class MainActivity extends AppCompatActivity {
             deleteImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    travelViewModel.delete(travel);
+                    travelViewModel.delete(travell);
                 }
             });
         }
 
         @Override
         public void onClick(View v) {
-           //przejscie do planu
+            travell=travel;
+            Intent intent=new Intent(MainActivity.this,DetailsActivity.class);
+            intent.putExtra(DetailsActivity.EXTRA_ID_TRAVEL,travell.getId());
+            Log.d("MainActivity","tr "+travell.getName());
+            startActivityForResult(intent,DETAILS_BOOK_ACTIVITY_REQUEST_CODE);
         }
 
 
@@ -197,5 +209,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
 }

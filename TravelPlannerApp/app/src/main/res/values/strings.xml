@@ -4,8 +4,13 @@
     <string name="hint_name">Name...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Travel not saved because there are empty fields.</string>
-    <string name="travel_added">Book added successfully</string>
+    <string name="planner_empty_not_saved">Plan not saved because there are empty fields.</string>
+    <string name="travel_added">Travel added successfully</string>
+    <string name="planner_added">Plan added successfully</string>
     <string name="data_start">From..</string>
     <string name="data_end">Do..</string>
+    <string name="data">Date..</string>
+    <string name="time">Time..</string>
+    <string name="empty_not_maps">Place is empty.</string>
 
 </resources>

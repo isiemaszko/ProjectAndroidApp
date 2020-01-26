@@ -1,0 +1,12 @@
+
+bsquid:S2259z"FA "NullPointerException" could be thrown; "location" is nullable here.(¹¬Ü¦þÿÿÿÿ
+@squid:S1148€"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+gsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(ðë¾üÿÿÿÿ
+?squid:S1148E"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+bsquid:S2259?"FA "NullPointerException" could be thrown; "location" is nullable here.(¹¬Ü¦þÿÿÿÿ
+isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+dsquid:UselessImportCheck"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8Áæûùü-
+bsquid:UselessImportCheck"2Remove this unused import 'android.widget.Button'.(²òžýÿÿÿÿ8Áæûùü-
+]squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8Áæûùü-
+{squid:S1450#"]Remove the "locationButton" field and declare it as a local variable in the relevant methods.(ÜéÐ8Áæûùü-
+|squid:S1450$"YRemove the "backButton" field and declare it as a local variable in the relevant methods.(Î¶Òöûÿÿÿÿ8Áæûùü-
