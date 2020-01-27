@@ -1,15 +1,22 @@
 package pl.edu.pb.travelplannerapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.Image;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
@@ -18,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,11 +38,13 @@ import java.util.List;
 
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private TravelViewModel travelViewModel;
     private Travel travell;
-    public int size;
+    private SensorManager sensorManager;
+    private Sensor sensor;
+    private ConstraintLayout layout;
 
     public static final int NEW_TRAVEL_ACTIVITY_REQUEST_CODE=1;
     public static final int EDIT_TRAVEL_ACTIVITY_REQUEST_CODE=2;
@@ -44,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        layout=(ConstraintLayout)findViewById(R.id.main_layout);
+
+        sensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensor=sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
         RecyclerView recyclerView=findViewById(R.id.recyclerview);
         final TravelAdapter adapter=new TravelAdapter();
@@ -56,10 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Travel> travels) {
                 adapter.setBooks(travels);
-                for (Travel el:travels
-                     ) {
-                    Log.d("MainActivity","trav  "+el.getId()+ " "+el.getName());
-                }
+
 
             }
         });
@@ -96,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
 
             travelViewModel.update(travell);
         }
+        else if(requestCode==DETAILS_BOOK_ACTIVITY_REQUEST_CODE){
+
+        }
         else {
             Toast.makeText(
                     getApplicationContext(),
@@ -103,6 +118,37 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG
             ).show();
         }
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event){
+        if(event.sensor.getType()==sensor.TYPE_LIGHT){
+            float currentValue=event.values[0];
+            if(currentValue>=400){
+                layout.setBackgroundColor(0);
+            }
+            else {
+                layout.setBackgroundColor(getResources().getColor(R.color.sensorBackground));
+            }
+
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 
 
@@ -166,7 +212,6 @@ public class MainActivity extends AppCompatActivity {
             travell=travel;
             Intent intent=new Intent(MainActivity.this,DetailsActivity.class);
             intent.putExtra(DetailsActivity.EXTRA_ID_TRAVEL,travell.getId());
-            Log.d("MainActivity","tr "+travell.getName());
             startActivityForResult(intent,DETAILS_BOOK_ACTIVITY_REQUEST_CODE);
         }
 

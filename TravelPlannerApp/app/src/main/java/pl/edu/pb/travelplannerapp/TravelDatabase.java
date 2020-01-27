@@ -42,13 +42,13 @@ public abstract class TravelDatabase extends RoomDatabase {
         TravelDao dao=INSTANCE.travelDao();
     //    dao.deleteALl();//usuwanie wszytskiego
 
-        Travel travel=new Travel("Wakacje Mikołajka","Mikołajki","00\00\000","00\00\0000");
+        Travel travel=new Travel("Wakacje we Włoszek","Włochy","12\07\2018","20\07\2018");
         dao.insert(travel);
-        Travel travel1=new Travel("Naznaczona","Kristin Cast","00\00\000","00\00\000");
+        Travel travel1=new Travel("Majówka","Poznań","01\05\2019","03\05\2019");
         dao.insert(travel1);
-        Travel travel2=new Travel("Igrzyska Smierci TOM 1","Suzanne Collins","00\00\000","00\00\000");
+        Travel travel2=new Travel("Weekend nad morzem","Gdańsk","12\09\2019","14\09\2019");
         dao.insert(travel2);
-        Travel travel3=new Travel("W pierścieniu ognia TOM 2","Suzanne Collins","00\00\000","00\00\000");
+        Travel travel3=new Travel("Sylwester w stolicy","Warszawa","31\12\2019","01\01\2020");
         dao.insert(travel3);
 
       });

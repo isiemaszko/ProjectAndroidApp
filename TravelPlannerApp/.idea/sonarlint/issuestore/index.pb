@@ -19,6 +19,16 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 k
 ;app/src/main/java/pl/edu/pb/travelplannerapp/TravelDao.java,6\0\60a458e64ac45992b57c35b1a4810cb1d42294eb
+i
+9app/src/main/java/pl/edu/pb/travelplannerapp/Planner.java,2\d\2d8d08525d2a770d91df725c6b9bfc89604989c3
+r
+Bapp/src/main/java/pl/edu/pb/travelplannerapp/PlannerViewModel.java,4\b\4bd3ad4eba985517f8762beab0222e4ad55f8c00
+l
+<app/src/main/java/pl/edu/pb/travelplannerapp/PlannerDao.java,5\3\5347dfcf43e3e1911a870a012cfcdcf20c87540a
+q
+Aapp/src/main/java/pl/edu/pb/travelplannerapp/PlannerDatabase.java,9\6\9657ad0236a363be4915d5772c3ea449f7acc206
+s
+Capp/src/main/java/pl/edu/pb/travelplannerapp/PlannerRepository.java,5\3\5357448fe3bee3987c2ad4d479a2cf1fe3dcd781
 q
 Aapp/src/main/java/pl/edu/pb/travelplannerapp/DetailsActivity.java,4\c\4cee6ee74ff225c54d880487153444d6b84ab546
 u

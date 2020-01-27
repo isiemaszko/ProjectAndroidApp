@@ -61,7 +61,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         if(getIntent().hasExtra(EXTRA_ID_TRAVEL)){
             id=(int) getIntent().getSerializableExtra(EXTRA_ID_TRAVEL);
-            Log.d("MainActivity","id"+id);
         }
 
         palnViewModel= ViewModelProviders.of(this).get(PlanTravelViewModel.class);
@@ -100,9 +99,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         if(requestCode==NEW_PLANNER_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK){
              stringBitmap= data.getStringExtra(EditPlannerActivity.EXTRA_PHOTO);
-            Log.d("MainActivity","bitmap z intent "+ stringBitmap);
             bitmap=StringToBitMap(stringBitmap);
-            Log.d("MainActivity","bitmap po convercie "+bitmap);
             PlanTravel planner=new PlanTravel(id,data.getStringExtra(EditPlannerActivity.EXTRA_EDIT_NAME_PLANNER),
                     data.getStringExtra(EditPlannerActivity.EXTRA_EDIT_DATE),
                     data.getStringExtra(EditPlannerActivity.EXTRA_EDIT_TIME),stringBitmap
@@ -136,6 +133,8 @@ public class DetailsActivity extends AppCompatActivity {
 
     private class DetailsHolder extends RecyclerView.ViewHolder {
         private TextView name;
+        private TextView data;
+        private TextView time;
         private ImageView deleteImageView;
 
 
@@ -143,6 +142,8 @@ public class DetailsActivity extends AppCompatActivity {
             super(inflater.inflate(R.layout.planner_list_item,parent,false));
 
             name=itemView.findViewById(R.id.day_name);
+            data=itemView.findViewById(R.id.day_date);
+            time=itemView.findViewById(R.id.day_time);
 
             deleteImageView=itemView.findViewById(R.id.delete_planner);
             deleteImageView.setImageResource(R.drawable.ic_delete_black_24dp);
@@ -150,16 +151,17 @@ public class DetailsActivity extends AppCompatActivity {
             imageinCamera=itemView.findViewById(R.id.picture);
             imageinCamera.setImageResource(R.drawable.ic_image_black_24dp);
 
-
         }
 
 
         public void bind(PlanTravel plan){
 
             name.setText(plan.getName());
+            time.setText(plan.getTime());
+            data.setText(plan.getDate());
             String st = plan.getBitmap();
             if(st!=null){
-                Log.d("MainActivity","bitmap details  "+st);
+
                 imageinCamera.setImageBitmap(StringToBitMap(st));
             }
             else {

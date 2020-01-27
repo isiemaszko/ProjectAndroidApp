@@ -135,8 +135,8 @@ public class EditPlannerActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         if(requestCode==PICTURE_ACTIVITY_REQUEST_CODE ){
-             bitmap=(Bitmap) data.getExtras().get("data");
-           st=BitMapToString(bitmap);
+            bitmap=(Bitmap) data.getExtras().get("data");
+            st=BitMapToString(bitmap);
 
             cameraPicture.setImageBitmap(bitmap);
         }

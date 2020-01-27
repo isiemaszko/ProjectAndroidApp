@@ -101,14 +101,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-//        mMap=googleMap;
-//        LatLng sydney=new LatLng(27.746974, 85.301582);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Kathmandu, Nepal"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            return;
-//        }
-//        mMap.setMyLocationEnabled(true);
         String location=locationSearch.getText().toString();
         List<Address>addressList=null;
         mMap = googleMap;
@@ -136,7 +128,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             }
         }
 
-        // Add a marker in Sydney and move the camera
 
     }
 }

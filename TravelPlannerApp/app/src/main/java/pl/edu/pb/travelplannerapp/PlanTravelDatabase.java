@@ -36,18 +36,14 @@ public abstract class PlanTravelDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(()->{
                 PlanTravelDao dao=INSTANCE.plannerDao();
                 //    dao.deleteALl();//usuwanie wszytskiego
-                PlanTravel plan=new PlanTravel(3,"3","12/12/2012","12:30",null);
+                PlanTravel plan=new PlanTravel(1,"stolica","12/12/2012","12:30",null);
                 dao.insert(plan);
-                PlanTravel plan2=new PlanTravel(3,"3","12/12/2012","12:30",null);
+                PlanTravel plan2=new PlanTravel(2,"starówka","12/12/2012","12:30",null);
                 dao.insert(plan2);
-                PlanTravel plan3=new PlanTravel(2,"2","12/12/2012","12:30",null);
+                PlanTravel plan3=new PlanTravel(3,"opalanie","12/12/2012","12:30",null);
                 dao.insert(plan3);
-                PlanTravel plan4=new PlanTravel(2,"2","12/12/2012","12:30",null);
+                PlanTravel plan4=new PlanTravel(4,"koncerty","12/12/2012","12:30",null);
                 dao.insert(plan4);
-                PlanTravel plan5=new PlanTravel(1,"1","12/12/2012","12:30",null);
-                dao.insert(plan5);
-                PlanTravel plan6=new PlanTravel(1,"1","12/12/2012","12:30",null);
-                dao.insert(plan6);
             });
         }
     };
